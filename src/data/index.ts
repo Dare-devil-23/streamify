@@ -1,14 +1,20 @@
+export const user = {
+    "userID": "User_01",
+    "fullName": "John Doe",
+    "email": "jXb5j@example.com",
+    "profilePicture": "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
+}
+
 export const keyMetrics = {
-    "totalUsers": 12000,
-    "activeUsers": 5000,
-    "totalStreams": 150000,
+    "totalUsers": "12k",
+    "activeUsers": "5k",
+    "totalStreams": "1,50,000",
     "revenue": {
-        "total": 85000,
-        "currency": "USD"
+        "total": "85,000 Rs",
     },
     "topArtist": {
         "name": "Artist A",
-        "streamCount": 12000
+        "streamCount": "15k streams"
     }
 }
 

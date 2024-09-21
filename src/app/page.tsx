@@ -1,8 +1,11 @@
 import React from 'react'
+import Stats from '@/components/home/stats'
 
 const Home: React.FC = () => {
   return (
-    <main>Home</main>
+    <section>
+        <Stats />
+    </section>
   )
 }
 
