@@ -17,6 +17,72 @@ export const DownArrowIcon: React.FC<IconProps> = ({ className }) => {
     );
 };
 
+export const SearchIcon: React.FC<IconProps> = ({ className }) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className={className}
+        >
+            <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+        </svg>
+    );
+}
+
+export const SortUpIcon: React.FC<IconProps> = ({ className }) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className={className}
+        >
+            <path d="M16 18L16 6M16 6L20 10.125M16 6L12 10.125" fill="currentColor" />
+        </svg>
+    );
+}
+
+export const SortDownIcon: React.FC<IconProps> = ({ className }) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className={className}
+        >
+            <path d="M8 6L8 18M8 18L12 13.875M8 18L4 13.875" fill="currentColor" />
+        </svg>
+    );
+}
+
+export const DefaultSortIcon: React.FC<IconProps> = ({ className }) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className={className}
+        >
+
+            <path d="M16 18L16 6M16 6L20 10.125M16 6L12 10.125" fill="currentColor" />
+            <path d="M8 6L8 18M8 18L12 13.875M8 18L4 13.875" fill="currentColor" />
+        </svg>
+    );
+}
+
 export const MoonIcon: React.FC<IconProps> = ({ className }) => {
     return (
         <svg

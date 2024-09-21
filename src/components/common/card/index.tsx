@@ -10,6 +10,10 @@ type CardProps = {
 const Card: React.FC<CardProps> & { Item: React.FC<CardItemProps> } = (props: CardProps) => {
     const { children, title, className, showDivider = true } = props;
 
+    const hasCardItem = React.Children.toArray(children).some(
+        (child) => React.isValidElement(child) && child.type === Card.Item
+    );
+
     return (
         <div className={`p-5 border border-zinc-800 rounded-3xl ${className}`}>
             <div className='text-medium opacity-60 truncate'>
@@ -19,7 +23,7 @@ const Card: React.FC<CardProps> & { Item: React.FC<CardItemProps> } = (props: Ca
                 <div className='w-8 my-1 h-[2px] rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500' />
             )}
             <div className='mt-5'>
-                {children}
+                {hasCardItem ? children : <div className='text-xl'>{children}</div>}
             </div>
         </div>
     );
