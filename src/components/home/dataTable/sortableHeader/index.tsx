@@ -4,12 +4,11 @@ import React from "react";
 interface SortableHeaderProps {
     title: string;
     onSort: () => void;
-    isSorted?: boolean;
-    direction?: string;
+    direction?: string | null | undefined;
     className?: string;
 }
 
-const SortableHeader: React.FC<SortableHeaderProps> = ({ title, onSort, isSorted, direction, className }) => {
+const SortableHeader: React.FC<SortableHeaderProps> = ({ title, onSort, direction, className }) => {
     return (
         <th
             className={`${className} cursor-pointer select-none`}
@@ -17,11 +16,11 @@ const SortableHeader: React.FC<SortableHeaderProps> = ({ title, onSort, isSorted
         >
             <div className="flex items-center gap-2">
                 {title}
-                {isSorted ? (
+                {direction ? (
                     direction === "ascending" ? (
-                        <SortUpIcon className="w-5 h-5 inline-block text-zinc-200" />
+                        <SortUpIcon className="w-4 h-4 inline-block text-zinc-200" />
                     ) : (
-                        <SortDownIcon className="w-5 h-5 inline-block text-zinc-200" />
+                        <SortDownIcon className="w-4 h-4 inline-block text-zinc-200" />
                     )
                 ) : (
                     <DefaultSortIcon className="opacity-50 w-5 h-5 inline-block" />

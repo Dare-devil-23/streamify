@@ -8,7 +8,7 @@ import StreamTable from '@/components/home/dataTable';
 
 const Visualizations: React.FC = () => {
     return (
-        <div className='grid grid-cols-12 gap-3 md:gap-5'>
+        <div className='grid grid-cols-12 gap-5'>
             <Card title='Revenue Distribution' className='col-span-12 lg:col-span-6 xl:col-span-3'>
                 <RevenueDistribution />
             </Card>

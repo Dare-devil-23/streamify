@@ -41,7 +41,7 @@ const SearchBarHeader: React.FC<Props> = (props: Props) => {
                         ref={buttonRef}
                         onClick={() => setInputVisible(!isInputVisible)}
                     >
-                        <SearchIcon className="w-5 h-5 text-zinc-500" />
+                        <SearchIcon className="w-4 h-4 text-zinc-500" />
                     </button>
                     {isInputVisible && (
                         <input

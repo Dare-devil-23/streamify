@@ -5,6 +5,7 @@ import Card from "@/components/common/card";
 import { recentStrams } from "@/data";
 import { shortNumber } from "@/utils";
 import SearchBarHeader from "@/components/home/dataTable/searchBarHeader";
+import { DefaultSortIcon, SearchIcon, SortDownIcon, SortUpIcon } from "@/icons";
 
 interface StreamData {
     songName: string;
@@ -17,26 +18,42 @@ interface StreamData {
 const StreamTable: React.FC = () => {
     const [data, setData] = useState(recentStrams);
     const [searchTerm, setSearchTerm] = useState("");
-    const [sortConfig, setSortConfig] = useState<{ key: string; direction: string } | null>(null);
+    const [sortConfig, setSortConfig] = useState<{ key: string; direction: string | null | undefined } | null>(null);
 
     // Handle Sorting
     const sortData = (key: keyof StreamData) => {
-        let direction = "ascending";
-        if (sortConfig && sortConfig.key === key && sortConfig.direction === "ascending") {
-            direction = "descending";
+        let direction: "ascending" | "descending" | null = "ascending";
+
+        if (sortConfig && sortConfig.key === key) {
+            // Cycle through 'ascending' -> 'descending' -> 'null'
+            if (sortConfig.direction === "ascending") {
+                direction = "descending";
+            } else if (sortConfig.direction === "descending") {
+                direction = null;
+            } else {
+                direction = "ascending";  // back to 'ascending'
+            }
         }
-        const sortedData = [...data].sort((a, b) => {
-            if (a[key] < b[key]) {
-                return direction === "ascending" ? -1 : 1;
-            }
-            if (a[key] > b[key]) {
-                return direction === "ascending" ? 1 : -1;
-            }
-            return 0;
-        });
-        setData(sortedData);
+
+        if (direction !== null) {
+            const sortedData = [...data].sort((a, b) => {
+                if (a[key] < b[key]) {
+                    return direction === "ascending" ? -1 : 1;
+                }
+                if (a[key] > b[key]) {
+                    return direction === "ascending" ? 1 : -1;
+                }
+                return 0;
+            });
+            setData(sortedData);
+        } else {
+            // If direction is null, reset data to original unsorted state (assuming `initialData` holds the original)
+            setData(recentStrams);
+        }
+
         setSortConfig({ key, direction });
     };
+
 
     // Filter Data based on search
     const filteredData = data.filter(
@@ -63,7 +80,6 @@ const StreamTable: React.FC = () => {
                             <SortableHeader
                                 title="Stream Count"
                                 onSort={() => sortData("streamCount")}
-                                isSorted={sortConfig?.key === "streamCount"}
                                 direction={sortConfig?.direction}
                                 className="px-5 py-4 w-[20%]"
                             />
@@ -74,10 +90,33 @@ const StreamTable: React.FC = () => {
                     </thead>
                 </table>
 
+                <div className="sm:hidden flex justify-between gap-2 mb-5 items-center h-12">
+                    <div className='flex text-regular font-normal gap-2 items-center h-full grow border border-zinc-700 rounded-lg px-4'>
+                        <SearchIcon className="w-5 h-5 text-zinc-500" />
+                        <input
+                            type="text"
+                            placeholder="Search by Song or Singer"
+                            className="outline-none ring-0 bg-transparent rounded-lg text-regular text-zinc-400 h-full placeholder:text-zinc-500"
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                    </div>
+                    <div className="flex items-center justify-center border border-zinc-700 h-full rounded-lg">
+                        <button onClick={() => sortData("streamCount")} className="opacity-50 w-10 flex items-center justify-center">
+                            {
+                                sortConfig?.direction === "ascending" ? (
+                                    <SortUpIcon className="w-4 h-4" />
+                                ) : sortConfig?.direction === "descending" ? (
+                                    <SortDownIcon className="w-4 h-4" />
+                                ) : <DefaultSortIcon className="w-5 h-5" />
+                            }
+                        </button>
+                    </div>
+                </div>
+
                 {/* Mobile View */}
                 <div className="sm:hidden text-regular">
                     {filteredData.map((stream, index) => (
-                        <div key={index} className="mb-3 pb-3 border-b border-zinc-800">
+                        <div key={index} className={`${index === filteredData.length - 1 ? "" : "mb-4 pb-4 border-b border-zinc-800"}`}>
                             <div className="flex gap-4 items-center">
                                 <img
                                     src={stream.coverImg}
@@ -122,11 +161,11 @@ const StreamTable: React.FC = () => {
                                                 alt={stream.songName}
                                                 className="w-10 h-10 rounded-lg"
                                             />
-                                            <div className="flex flex-col gap-1">
+                                            <div className="flex flex-col">
                                                 <div className="text-medium">
                                                     {stream.songName}
                                                 </div>
-                                                <div className="text-small">
+                                                <div className="text-small opacity-60">
                                                     {stream.artist}
                                                 </div>
                                             </div>

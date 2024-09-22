@@ -1,6 +1,5 @@
 'use client';
-import React from 'react';
-import Card from '@/components/common/card';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 type AgeGroupData = {
@@ -33,61 +32,72 @@ const getFontSize = (percentage: number) => {
   return 16;
 };
 
-const getTopPosition = (index: number) => {
-  switch (index) {
-    case 1:
-      return 220;
-    case 2:
-      return 130;
-    case 3:
-      return 20;
-    case 4:
-      return 170;
-    default:
-      return 80;
-  }
-}
-
-const getLeftPosition = (index: number) => {
-  switch (index) {
-    case 1:
-      return 120;
-    case 2:
-      return 180;
-    case 3:
-      return 220;
-    case 4:
-      return 170;
-    default:
-      return 20;
-  }
-}
+// Positions in relative percentage from center
+const positions = [
+  { xPercent: -20, yPercent: -20 },
+  { xPercent: 10, yPercent: 0 },
+  { xPercent: -10, yPercent: 20 },
+  { xPercent: 30, yPercent: -30 },
+];
 
 const AgeGroups: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerSize, setContainerSize] = useState<{ width: number; height: number }>({ width: 0, height: 0 });
+
+  // Dynamically track container size
+  useEffect(() => {
+    const updateSize = () => {
+      if (containerRef.current) {
+        setContainerSize({
+          width: containerRef.current.offsetWidth,
+          height: containerRef.current.offsetHeight,
+        });
+      }
+    };
+
+    updateSize(); // Set size on mount
+    window.addEventListener('resize', updateSize); // Adjust on resize
+
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   return (
-      <div className="relative min-h-[450px]">
-        {data.map((item, index) => (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.5, delay: index * 0.2 } }}
-            key={item.index}
-            style={{
-              backgroundColor: item.color,
-              width: `${getCircleSize(item.percentage)}px`,
-              height: `${getCircleSize(item.percentage)}px`,
-              top: `${getTopPosition(index)}px`,
-              left: `${getLeftPosition(index)}px`,
-              fontSize: `${getFontSize(item.percentage)}px`,
-            }}
-            className="absolute cursor-default flex items-center backdrop-blur hover:scale-105 transition-all duration-500 hover:z-10 justify-center rounded-full text-black"
-          >
-            <div className="flex flex-col items-center">
-              <div>{item.percentage}%</div>
-              <div className="text-small">{item.ageRange}</div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+    <div ref={containerRef} className="relative min-h-[450px] flex items-center justify-center">
+      {containerSize.width > 0 && containerSize.height > 0 && (
+        data.map((item, index) => {
+          const { xPercent, yPercent } = positions[index];
+
+          // Calculate actual pixel positions based on container size and relative percentage
+          const xPos = (xPercent / 100) * containerSize.width;
+          const yPos = (yPercent / 100) * containerSize.height;
+
+          return (
+            <motion.div
+              key={item.index}
+              initial={{ opacity: 0, x: 0, y: 0 }} // Start in center
+              animate={{
+                opacity: 1,
+                x: xPos, // Dynamic positions based on container size
+                y: yPos,
+                transition: { duration: 0.5, delay: index * 0.2 },
+              }}
+              style={{
+                backgroundColor: item.color,
+                width: `${getCircleSize(item.percentage)}px`,
+                height: `${getCircleSize(item.percentage)}px`,
+                fontSize: `${getFontSize(item.percentage)}px`,
+              }}
+              className="absolute flex items-center justify-center backdrop-blur hover:scale-105 transition-all duration-500 hover:z-10 rounded-full text-black"
+            >
+              <div className="flex flex-col items-center">
+                <div>{item.percentage}%</div>
+                <div className="text-small">{item.ageRange}</div>
+              </div>
+            </motion.div>
+          );
+        })
+      )}
+    </div>
   );
 };
 

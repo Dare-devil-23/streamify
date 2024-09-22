@@ -4,7 +4,7 @@ import Visualizations from '@/components/home/visualization'
 
 const Home: React.FC = () => {
   return (
-    <section className='flex gap-8 flex-col mb-5'>
+    <section className='flex gap-5 flex-col mb-5'>
       <Stats />
       <Visualizations />
     </section>
