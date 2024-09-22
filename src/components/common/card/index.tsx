@@ -13,7 +13,7 @@ type CardItemProps = {
     subTitle?: string;
 };
 
-const Card: React.FC<CardProps> & { Item: React.FC<CardItemProps> } = (props: CardProps) => {
+const Card = (props: CardProps) => {
     const { children, title, className, showDivider = true, bgImage } = props;
 
     const hasCardItem = React.Children.toArray(children).some(
@@ -35,7 +35,7 @@ const Card: React.FC<CardProps> & { Item: React.FC<CardItemProps> } = (props: Ca
     );
 };
 
-Card.Item = (props: CardItemProps) => {
+const CardItem: React.FC<CardItemProps> = (props: CardItemProps) => {
     const { children, subTitle } = props;
     return (
         <div className='flex gap-2 flex-col lg:flex-row lg:items-end'>
@@ -50,5 +50,11 @@ Card.Item = (props: CardItemProps) => {
         </div>
     );
 };
+
+// Attach the CardItem component to Card
+Card.Item = CardItem;
+
+// Set display names
+Card.displayName = 'Card';
 
 export default Card;

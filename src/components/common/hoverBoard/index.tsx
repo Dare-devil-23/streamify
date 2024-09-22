@@ -60,7 +60,7 @@ const HoverBorderGradient: React.FC<Props> = (params: Props & React.HTMLAttribut
 
     return (
         <Tag
-            onMouseEnter={(event: React.MouseEvent<HTMLDivElement>) => {
+            onMouseEnter={() => {
                 setHovered(true);
             }}
             onMouseLeave={() => setHovered(false)}
