@@ -1,7 +1,7 @@
-import { camelCaseToSentenceCase } from '@/utils';
 import React from 'react'
 import { TooltipProps } from 'recharts'
 import { NameType, ValueType } from 'recharts/types/component/DefaultTooltipContent'
+import { camelCaseToSentenceCase } from '@/utils';
 
 const CustomTooltip: React.FC<TooltipProps<ValueType, NameType>> = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
     if (active && payload && payload.length) {

@@ -1,10 +1,9 @@
 'use client'
 import React, { useState } from "react";
 import SortableHeader from "@/components/home/dataTable/sortableHeader";
-import Card from "@/components/common/card";
+import SearchBarHeader from "@/components/home/dataTable/searchBarHeader";
 import { recentStrams } from "@/data";
 import { shortNumber } from "@/utils";
-import SearchBarHeader from "@/components/home/dataTable/searchBarHeader";
 import { DefaultSortIcon, SearchIcon, SortDownIcon, SortUpIcon } from "@/icons";
 
 interface StreamData {

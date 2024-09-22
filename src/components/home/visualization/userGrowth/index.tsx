@@ -1,9 +1,9 @@
 'use client'
+import React, { useEffect, useState } from 'react'
+import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import CustomTooltip from '@/components/common/customTooltip';
 import Loader from '@/components/common/loader';
 import { userGrowth } from '@/data';
-import React, { useEffect, useState } from 'react'
-import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 const UserGrowth: React.FC = () => {
 

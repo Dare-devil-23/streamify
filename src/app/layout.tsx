@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import "@/styles/globals.css";
 import Header from "@/components/common/header";
+import Head from "next/head";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Streamify",
-  description: "Analytics dashboard for music streaming",
+  description: "Analytics dashboard for music streaming"
 };
 
 interface Props {
@@ -14,11 +15,9 @@ interface Props {
 const RootLayout: React.FC<Props> = ({ children }: Readonly<Props>) => {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet" />
-      </head>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <body
         className="antialiased text-white bg-black transition-all duration-500 flex flex-col min-h-dvh container mx-auto px-5 lg:px-0"
       >

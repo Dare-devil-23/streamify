@@ -1,6 +1,6 @@
+import React from 'react'
 import Song from '@/components/common/song'
 import { topSongs } from '@/data'
-import React from 'react'
 
 const TopFive: React.FC = () => {
     return (

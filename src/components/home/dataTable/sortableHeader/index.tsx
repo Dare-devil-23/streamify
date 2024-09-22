@@ -1,5 +1,5 @@
-import { DefaultSortIcon, SortDownIcon, SortUpIcon } from "@/icons";
 import React from "react";
+import { DefaultSortIcon, SortDownIcon, SortUpIcon } from "@/icons";
 
 interface SortableHeaderProps {
     title: string;
