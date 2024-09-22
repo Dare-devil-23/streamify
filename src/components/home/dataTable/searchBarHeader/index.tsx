@@ -41,14 +41,14 @@ const SearchBarHeader: React.FC<Props> = (props: Props) => {
                         ref={buttonRef}
                         onClick={() => setInputVisible(!isInputVisible)}
                     >
-                        <SearchIcon className="w-5 h-5 text-zinc-700" />
+                        <SearchIcon className="w-5 h-5 text-zinc-500" />
                     </button>
                     {isInputVisible && (
                         <input
                             ref={inputRef}
                             type="text"
                             placeholder="Search by Song or Singer"
-                            className="outline-none ring-0 bg-transparent rounded-lg text-regular text-zinc-400 placeholder:text-zinc-700"
+                            className="outline-none ring-0 bg-transparent rounded-lg text-regular text-zinc-400 placeholder:text-zinc-500"
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     )}

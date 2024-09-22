@@ -1,10 +1,10 @@
 'use client'
 import React, { useState } from "react";
-import SortableHeader from "./sortableHeader";
+import SortableHeader from "@/components/home/dataTable/sortableHeader";
 import Card from "@/components/common/card";
 import { recentStrams } from "@/data";
-import { shortNumber } from "@/tils";
-import SearchBarHeader from "./searchBarHeader";
+import { shortNumber } from "@/utils";
+import SearchBarHeader from "@/components/home/dataTable/searchBarHeader";
 
 interface StreamData {
     songName: string;
@@ -46,11 +46,11 @@ const StreamTable: React.FC = () => {
     );
 
     return (
-        <Card title="Stream History">
+        <>
             {/* Table */}
             <div className="w-full">
-                <table className="min-w-full text-regular border border-black table-scroll-bar table-fixed hidden sm:table">
-                    <thead className="bg-zinc-900">
+                <table className="min-w-full text-regular border border-zinc-900 custom-scroll-bar table-fixed hidden sm:table">
+                    <thead className="bg-zinc-800">
                         <tr>
                             <SearchBarHeader
                                 title="Song Details"
@@ -110,12 +110,12 @@ const StreamTable: React.FC = () => {
                 </div>
 
                 {/* Desktop View */}
-                <div className="w-full h-[400px] overflow-y-auto table-scroll-bar hidden sm:block">
+                <div className="w-full h-[400px] overflow-y-auto custom-scroll-bar hidden sm:block">
                     <table className="min-w-full text-regular table-fixed">
                         <tbody>
                             {filteredData.map((stream, index) => (
-                                <tr key={index}>
-                                    <td className="px-5 py-3 truncate w-[40%]">
+                                <tr key={index} className="hover:bg-zinc-800">
+                                    <td className="px-5 py-3 rounded-l-xl truncate w-[40%]">
                                         <div className="flex gap-4 items-center">
                                             <img
                                                 src={stream.coverImg}
@@ -138,7 +138,7 @@ const StreamTable: React.FC = () => {
                                     <td className="px-6 py-3 truncate w-[20%]">
                                         {shortNumber(stream.streamCount)}
                                     </td>
-                                    <td className="px-6 py-3 truncate w-[20%]">
+                                    <td className="px-6 py-3 rounded-r-xl truncate w-[20%]">
                                         {stream.userId}
                                     </td>
                                 </tr>
@@ -147,8 +147,7 @@ const StreamTable: React.FC = () => {
                     </table>
                 </div>
             </div>
-
-        </Card>
+        </>
     );
 };
 

@@ -7,7 +7,7 @@ import { PieChart, Pie, ResponsiveContainer, Tooltip, Legend, Cell } from 'recha
 const RevenueDistribution: React.FC = () => {
     const [mounted, setMounted] = useState(false);
 
-    const colors = ['#d946ef', '#8b5cf6'];
+    const colors = ['#d946ef90', '#8b5cf690'];
 
     useEffect(() => {
         setMounted(true);

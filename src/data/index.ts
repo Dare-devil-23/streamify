@@ -10,28 +10,28 @@ export const keyMetrics = {
     "activeUsers": 2950000,
     "totalStreams": 15000000,
     "revenue": {
-        "total": 8500000,
+        "total": 85000,
     },
     "topArtist": {
-        "name": "Artist A",
+        "name": "Dua Lipa",
         "streamCount": 6200000
     }
 }
 
 export const userGrowth = [
-    { name: 'Jan', totalUsers: 1000, activeUsers: 500 },
-    { name: 'Feb', totalUsers: 1200, activeUsers: 600 },
-    { name: 'Mar', totalUsers: 1400, activeUsers: 800 },
-    { name: 'Apr', totalUsers: 1600, activeUsers: 900 },
-    { name: 'May', totalUsers: 2000, activeUsers: 1200 },
-    { name: 'Jun', totalUsers: 2500, activeUsers: 1500 },
-    { name: 'Jul', totalUsers: 3000, activeUsers: 2000 },
-    { name: 'Aug', totalUsers: 4000, activeUsers: 2500 },
-    { name: 'Sep', totalUsers: 6000, activeUsers: 3000 },
-    { name: 'Oct', totalUsers: 8000, activeUsers: 3500 },
-    { name: 'Nov', totalUsers: 10000, activeUsers: 4000 },
-    { name: 'Dec', totalUsers: 12000, activeUsers: 5000 }
-]
+    { name: 'Jan', totalUsers: 3000, activeUsers: 2500 },
+    { name: 'Feb', totalUsers: 4000, activeUsers: 3500 },
+    { name: 'Mar', totalUsers: 5000, activeUsers: 4200 },
+    { name: 'Apr', totalUsers: 4500, activeUsers: 3800 },
+    { name: 'May', totalUsers: 6000, activeUsers: 5000 },
+    { name: 'Jun', totalUsers: 7000, activeUsers: 5500 },
+    { name: 'Jul', totalUsers: 6500, activeUsers: 4800 },
+    { name: 'Aug', totalUsers: 8000, activeUsers: 6000 },
+    { name: 'Sep', totalUsers: 9000, activeUsers: 7000 },
+    { name: 'Oct', totalUsers: 8500, activeUsers: 6800 },
+    { name: 'Nov', totalUsers: 7000, activeUsers: 5200 },
+    { name: 'Dec', totalUsers: 8000, activeUsers: 6000 }
+];
 
 export const revenueDistribution = [
     { name: 'Subscriptions', value: 60000 },

@@ -2,7 +2,7 @@
 import CustomTooltip from '@/components/common/customTooltip';
 import { userGrowth } from '@/data';
 import React, { useEffect, useState } from 'react'
-import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 const UserGrowth: React.FC = () => {
 
@@ -19,14 +19,14 @@ const UserGrowth: React.FC = () => {
     return (
         <div className='w-full h-[360px]'>
             <ResponsiveContainer >
-                <LineChart
+                <AreaChart
                     width={500}
                     height={300}
                     data={userGrowth}
                     margin={{
                         top: 5,
                         right: 5,
-                        left: 0,
+                        left: -15,
                         bottom: 5,
                     }}
                     className='text-small'
@@ -37,9 +37,9 @@ const UserGrowth: React.FC = () => {
                         content={<CustomTooltip />}
                         cursor={{ fill: "transparent" }}
                     />
-                    <Line type="monotone" dataKey="totalUsers" stroke="#8b5cf6" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="activeUsers" stroke="#d946ef" />
-                </LineChart>
+                    <Area type="monotone" dataKey="totalUsers" stroke="#8b5cf6" fill="#8b5cf620" />
+                    <Area type="monotone" dataKey="activeUsers" stroke="#d946ef" fill="#d946ef20" />
+                </AreaChart>
             </ResponsiveContainer>
         </div>
     )

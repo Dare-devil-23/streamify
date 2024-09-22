@@ -5,33 +5,34 @@ type CardProps = {
     title: string;
     className?: string;
     showDivider?: boolean;
+    bgImage?: string;
+};
+
+type CardItemProps = {
+    children: React.ReactNode;
+    subTitle?: string;
 };
 
 const Card: React.FC<CardProps> & { Item: React.FC<CardItemProps> } = (props: CardProps) => {
-    const { children, title, className, showDivider = true } = props;
+    const { children, title, className, showDivider = true, bgImage } = props;
 
     const hasCardItem = React.Children.toArray(children).some(
         (child) => React.isValidElement(child) && child.type === Card.Item
     );
 
     return (
-        <div className={`p-5 border border-zinc-800 rounded-3xl ${className}`}>
+        <div style={{ backgroundImage: `url(${bgImage})` }} className={`p-5 bg-zinc-900 transition-colors duration-500 bg-no-repeat border border-zinc-800 shadow-inner shadow-zinc-800 rounded-3xl bg-[top_20px_right_20px] ${className}`}>
             <div className='text-medium opacity-60 truncate'>
                 {title}
             </div>
             {showDivider && (
-                <div className='w-8 my-1 h-[2px] rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500' />
+                <div className={`w-8 my-1 h-[2px] rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500`} />
             )}
             <div className='mt-5'>
                 {hasCardItem ? children : <div className='text-xl'>{children}</div>}
             </div>
         </div>
     );
-};
-
-type CardItemProps = {
-    children: React.ReactNode;
-    subTitle?: string;
 };
 
 Card.Item = (props: CardItemProps) => {
@@ -42,7 +43,7 @@ Card.Item = (props: CardItemProps) => {
                 {children}
             </div>
             {subTitle && (
-                <div className='text-regular text-zinc-500 opacity-90'>
+                <div className='text-regular text-zinc-400'>
                     {subTitle}
                 </div>
             )}

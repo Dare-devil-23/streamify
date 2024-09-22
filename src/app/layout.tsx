@@ -20,7 +20,7 @@ const RootLayout: React.FC<Props> = ({ children }: Readonly<Props>) => {
         <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet" />
       </head>
       <body
-        className="antialiased dark:bg-black bg-white text-black dark:text-white transition-all duration-500 flex flex-col min-h-dvh container mx-auto px-5 lg:px-0"
+        className="antialiased text-white bg-black transition-all duration-500 flex flex-col min-h-dvh container mx-auto px-5 lg:px-0"
       >
         <Header />
         <main className="grow">
