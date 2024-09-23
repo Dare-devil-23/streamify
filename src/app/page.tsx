@@ -1,6 +1,6 @@
 import React from 'react'
-import Stats from '@/components/home/stats'
-import Visualizations from '@/components/home/visualization'
+import Stats from '@/src/components/home/stats'
+import Visualizations from '@/src/components/home/visualization'
 
 const Home: React.FC = () => {
   return (

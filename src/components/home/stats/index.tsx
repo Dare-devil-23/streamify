@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from '@/components/common/card';
-import { keyMetrics } from '@/data';
-import { formatCurrency, shortNumber } from '@/utils';
+import Card from '@/src/components/common/card';
+import { keyMetrics } from '@/src/data';
+import { formatCurrency, shortNumber } from '@/src/utils';
 
 const Stats: React.FC = () => {
     return (

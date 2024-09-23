@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { SearchIcon } from '@/icons';
+import { SearchIcon } from '@/src/icons';
 
 type Props = {
     setSearchTerm: (value: string) => void;

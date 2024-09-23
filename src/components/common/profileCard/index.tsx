@@ -1,6 +1,6 @@
 import React from 'react'
-import { user } from '@/data'
-import { DownArrowIcon } from '@/icons'
+import { user } from '@/src/data'
+import { DownArrowIcon } from '@/src/icons'
 
 const ProfileCard: React.FC = () => {
     return (

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 
 import { motion } from "framer-motion";
-import { cn } from "@/utils";
+import { cn } from "@/src/utils";
 
 type Direction = "TOP" | "LEFT" | "BOTTOM" | "RIGHT";
 

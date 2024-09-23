@@ -1,10 +1,10 @@
 'use client'
 import React, { useState } from "react";
-import SortableHeader from "@/components/home/dataTable/sortableHeader";
-import SearchBarHeader from "@/components/home/dataTable/searchBarHeader";
-import { recentStrams } from "@/data";
-import { shortNumber } from "@/utils";
-import { DefaultSortIcon, SearchIcon, SortDownIcon, SortUpIcon } from "@/icons";
+import SortableHeader from "@/src/components/home/dataTable/sortableHeader";
+import SearchBarHeader from "@/src/components/home/dataTable/searchBarHeader";
+import { recentStrams } from "@/src/data";
+import { shortNumber } from "@/src/utils";
+import { DefaultSortIcon, SearchIcon, SortDownIcon, SortUpIcon } from "@/src/icons";
 
 interface StreamData {
     songName: string;

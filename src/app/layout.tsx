@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Header from "@/components/common/header";
+import Header from "@/src/components/common/header";
 import Head from "next/head";
-import "@/styles/globals.css";
+import "@/src/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Streamify",

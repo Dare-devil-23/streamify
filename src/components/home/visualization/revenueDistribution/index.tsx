@@ -1,9 +1,9 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, ResponsiveContainer, Tooltip, Legend, Cell } from 'recharts';
-import CustomTooltip from '@/components/common/customTooltip';
-import Loader from '@/components/common/loader';
-import { revenueDistribution } from '@/data';
+import CustomTooltip from '@/src/components/common/customTooltip';
+import Loader from '@/src/components/common/loader';
+import { revenueDistribution } from '@/src/data';
 
 const RevenueDistribution: React.FC = () => {
     const colors = ['#d946ef90', '#8b5cf690'];

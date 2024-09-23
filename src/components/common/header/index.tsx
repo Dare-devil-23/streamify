@@ -1,6 +1,6 @@
 import React from 'react'
-import Logo from '@/components/common/logo'
-import ProfileCard from '@/components/common/profileCard'
+import Logo from '@/src/components/common/logo'
+import ProfileCard from '@/src/components/common/profileCard'
 
 const Header: React.FC = () => {
     return (

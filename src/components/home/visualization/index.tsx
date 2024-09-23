@@ -1,10 +1,10 @@
 import React from 'react';
-import Card from '@/components/common/card';
-import RevenueDistribution from '@/components/home/visualization/revenueDistribution';
-import UserGrowth from '@/components/home/visualization/userGrowth';
-import TopFive from '@/components/home/visualization/topFive';
-import AgeGroups from '@/components/home/ageGroups';
-import StreamTable from '@/components/home/dataTable';
+import Card from '@/src/components/common/card';
+import RevenueDistribution from '@/src/components/home/visualization/revenueDistribution';
+import UserGrowth from '@/src/components/home/visualization/userGrowth';
+import TopFive from '@/src/components/home/visualization/topFive';
+import AgeGroups from '@/src/components/home/ageGroups';
+import StreamTable from '@/src/components/home/dataTable';
 
 const Visualizations: React.FC = () => {
     return (

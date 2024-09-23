@@ -1,6 +1,6 @@
 import React from 'react'
-import HoverBorderGradient from '@/components/common/hoverBoard';
-import { shortNumber } from '@/utils';
+import HoverBorderGradient from '@/src/components/common/hoverBoard';
+import { shortNumber } from '@/src/utils';
 
 type Props = {
   songName: string,
