@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import Song from '@/src/components/common/song'
+// import Song from '@/src/components/common/song'
 import { topSongs } from '@/src/data'
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import Loader from '@/src/components/common/loader'
@@ -45,23 +45,23 @@ const GraphType: React.FC = () => {
     )
 }
 
-const CardType: React.FC = () => {
-    return (
-        <div className='flex flex-col gap-2'>
-            {
-                topSongs.map((song, index) => (
-                    <Song
-                        key={index}
-                        songName={song.songName}
-                        artist={song.artist}
-                        streams={song.streams}
-                        coverPic={song.coverPic}
-                    />
-                ))
-            }
-        </div>
-    )
-}
+// const CardType: React.FC = () => {
+//     return (
+//         <div className='flex flex-col gap-2'>
+//             {
+//                 topSongs.map((song, index) => (
+//                     <Song
+//                         key={index}
+//                         songName={song.songName}
+//                         artist={song.artist}
+//                         streams={song.streams}
+//                         coverPic={song.coverPic}
+//                     />
+//                 ))
+//             }
+//         </div>
+//     )
+// }
 
 const TopFive: React.FC = () => {
     return (

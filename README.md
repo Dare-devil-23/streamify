@@ -90,7 +90,7 @@ The main features of the dashboard are:
 
 1. **TypeScript**: Chosen for its type safety and to minimize runtime errors, though it may add some initial complexity.
 2. **Recharts**: A well-documented and highly customizable chart library, though other libraries (e.g., D3.js) could offer more flexibility for complex visualizations.
-3. **Top5 Songs card view**: Uncomment <CardType> and comment <GraphType> components to check view in @\src\components\home\visualization\topFive\index.tsx.
+3. **Top5 Songs card view**: Uncomment <CardType> and imports and comment <GraphType> components to check view in @\src\components\home\visualization\topFive\index.tsx.
 
 ---
 
