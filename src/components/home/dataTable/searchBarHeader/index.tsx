@@ -15,7 +15,7 @@ const SearchBarHeader: React.FC<Props> = (props: Props) => {
 
     const handleClickOutside = (event: MouseEvent) => {
         if (inputRef.current && !inputRef.current.contains(event.target as Node) &&
-            buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
+            buttonRef.current && !buttonRef.current.contains(event.target as Node) && !inputRef.current.value) {
             setInputVisible(false);
         }
     };

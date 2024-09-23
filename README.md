@@ -45,6 +45,7 @@ The main features of the dashboard are:
 - **Recharts**: Charting library used for creating the line, pie, and bar charts.
 - **Framer Motion**: Smooth animations for enhanced user interactions.
 - **Jest**: Unit testing for components.
+- **Redux Toolkit**: Global state management.
 
 ---
 

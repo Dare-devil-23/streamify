@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/src/components/common/header";
 import Head from "next/head";
 import "@/src/styles/globals.css";
+import StoreProvider from "./StoreProvider";
 
 export const metadata: Metadata = {
   title: "Streamify",
@@ -23,7 +24,9 @@ const RootLayout: React.FC<Props> = ({ children }: Readonly<Props>) => {
       >
         <Header />
         <main className="grow">
-          {children}
+          <StoreProvider>
+            {children}
+          </StoreProvider>
         </main>
       </body>
     </html>

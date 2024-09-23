@@ -5,6 +5,8 @@ import SearchBarHeader from "@/src/components/home/dataTable/searchBarHeader";
 import { recentStrams } from "@/src/data";
 import { shortNumber } from "@/src/utils";
 import { DefaultSortIcon, SearchIcon, SortDownIcon, SortUpIcon } from "@/src/icons";
+import { useAppDispatch, useAppSelector } from "@/src/lib/hooks";
+import { setSearchTerm } from "@/src/lib/store/filterSlice";
 
 interface StreamData {
     songName: string;
@@ -16,7 +18,8 @@ interface StreamData {
 
 const StreamTable: React.FC = () => {
     const [data, setData] = useState(recentStrams);
-    const [searchTerm, setSearchTerm] = useState("");
+    const dispatch = useAppDispatch();
+    const searchTerm = useAppSelector((state) => state.filter.searchTerm);
     const [sortConfig, setSortConfig] = useState<{ key: string; direction: string | null | undefined } | null>(null);
 
     // Handle Sorting
@@ -53,6 +56,9 @@ const StreamTable: React.FC = () => {
         setSortConfig({ key, direction });
     };
 
+    const handleSearchTermChange = (searchTerm: string) => {
+        dispatch(setSearchTerm(searchTerm));
+    };
 
     // Filter Data based on search
     const filteredData = data.filter(
@@ -70,7 +76,7 @@ const StreamTable: React.FC = () => {
                         <tr>
                             <SearchBarHeader
                                 title="Song Details"
-                                setSearchTerm={setSearchTerm}
+                                setSearchTerm={handleSearchTermChange}
                                 className="px-5 py-4 w-[40%] rounded-l-xl"
                             />
                             <th className="px-5 py-4 text-left w-[20%]">
@@ -96,7 +102,7 @@ const StreamTable: React.FC = () => {
                             type="text"
                             placeholder="Search by Song or Singer"
                             className="outline-none ring-0 bg-transparent rounded-lg text-regular text-zinc-400 h-full placeholder:text-zinc-500"
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={(e) => handleSearchTermChange(e.target.value)}
                         />
                     </div>
                     <div className="flex items-center justify-center border border-zinc-700 h-full rounded-lg">
