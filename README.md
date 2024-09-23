@@ -31,6 +31,7 @@ The main features of the dashboard are:
 
 4. **Additional Features**
    - **Age Grops**: Shows users age-group comparision.
+   - **Top5 Songs Card Type**: Also included top 5 songs cards view.
    - **Chart Interactions**: Hover to view exact data points on charts.
    - **Animations**: **Framer Motion** adds smooth transitions between different dashboard sections.
 
@@ -89,7 +90,7 @@ The main features of the dashboard are:
 
 1. **TypeScript**: Chosen for its type safety and to minimize runtime errors, though it may add some initial complexity.
 2. **Recharts**: A well-documented and highly customizable chart library, though other libraries (e.g., D3.js) could offer more flexibility for complex visualizations.
-3. **Tailwind CSS**: Chosen for its simplicity in creating a responsive design, which speeds up the styling process.
+3. **Top5 Songs card view**: Uncomment <CardType> and comment <GraphType> components to check view in @\src\components\home\visualization\topFive\index.tsx.
 
 ---
 
