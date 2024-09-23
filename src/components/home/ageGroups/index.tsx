@@ -62,41 +62,48 @@ const AgeGroups: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative min-h-[450px] flex items-center justify-center">
-      {containerSize.width > 0 && containerSize.height > 0 && (
-        data.map((item, index) => {
-          const { xPercent, yPercent } = positions[index];
+    <div className='w-full min-h-[450px]'>
+      <div ref={containerRef} className="relative min-h-[450px] flex items-center justify-center">
+        {containerSize.width > 0 && containerSize.height > 0 && (
+          data.map((item, index) => {
+            const { xPercent, yPercent } = positions[index];
 
-          // Calculate actual pixel positions based on container size and relative percentage
-          const xPos = (xPercent / 100) * containerSize.width;
-          const yPos = (yPercent / 100) * containerSize.height;
+            // Calculate actual pixel positions based on container size and relative percentage
+            const xPos = (xPercent / 100) * containerSize.width;
+            const yPos = (yPercent / 100) * containerSize.height;
 
-          return (
-            <motion.div
-              key={item.index}
-              initial={{ opacity: 0, x: 0, y: 0 }} // Start in center
-              animate={{
-                opacity: 1,
-                x: xPos, // Dynamic positions based on container size
-                y: yPos,
-                transition: { duration: 0.5, delay: index * 0.2 },
-              }}
-              style={{
-                backgroundColor: item.color,
-                width: `${getCircleSize(item.percentage)}px`,
-                height: `${getCircleSize(item.percentage)}px`,
-                fontSize: `${getFontSize(item.percentage)}px`,
-              }}
-              className="absolute flex items-center justify-center backdrop-blur hover:scale-105 transition-all duration-500 hover:z-10 rounded-full text-black"
-            >
-              <div className="flex flex-col items-center">
-                <div>{item.percentage}%</div>
-                <div className="text-small">{item.ageRange}</div>
-              </div>
-            </motion.div>
-          );
-        })
-      )}
+            return (
+              <motion.div
+                key={item.index}
+                initial={{ opacity: 0, x: 0, y: 0 }} // Start in center
+                animate={{
+                  opacity: 1,
+                  x: xPos, // Dynamic positions based on container size
+                  y: yPos,
+                  transition: { duration: 0.5, delay: index * 0.2 },
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  transition: { duration: 0.5 },
+                  zIndex: 10,
+                }}
+                style={{
+                  backgroundColor: item.color,
+                  width: `${getCircleSize(item.percentage)}px`,
+                  height: `${getCircleSize(item.percentage)}px`,
+                  fontSize: `${getFontSize(item.percentage)}px`,
+                }}
+                className="absolute flex items-center justify-center backdrop-blur rounded-full text-black"
+              >
+                <div className="flex flex-col items-center">
+                  <div>{item.percentage}%</div>
+                  <div className="text-small">{item.ageRange}</div>
+                </div>
+              </motion.div>
+            );
+          })
+        )}
+      </div>
     </div>
   );
 };

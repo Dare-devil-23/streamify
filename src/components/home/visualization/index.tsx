@@ -9,14 +9,14 @@ import StreamTable from '@/src/components/home/dataTable';
 const Visualizations: React.FC = () => {
     return (
         <div className='grid grid-cols-12 gap-5'>
-            <Card title='Revenue Distribution' className='col-span-12 lg:col-span-6 xl:col-span-3'>
-                <RevenueDistribution />
+            <Card title='Top 5 Songs' className='col-span-12 lg:col-span-6 xl:col-span-4'>
+                <TopFive />
             </Card>
-            <Card title="User Growth" className='col-span-12 lg:col-span-6'>
+            <Card title="User Growth" className='col-span-12 lg:col-span-6 xl:col-span-5'>
                 <UserGrowth />
             </Card>
-            <Card title='Top 5 Songs' className='col-span-12 lg:col-span-6 xl:col-span-3'>
-                <TopFive />
+            <Card title='Revenue Distribution' className='col-span-12 lg:col-span-6 xl:col-span-3'>
+                <RevenueDistribution />
             </Card>
             <Card title="Age Groups" className="col-span-12 min-h-[450px] lg:col-span-6 xl:col-span-4">
                 <AgeGroups />

@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Project Documentation: Dashboard Overview
 
-## Getting Started
+#### Project Summary
+This project is a **Single-Page Application (SPA)** built using **Next.js**, **TypeScript**, and **Tailwind CSS**. It provides an intuitive dashboard for visualizing key platform metrics, including user engagement, revenue breakdown, and top artists and songs. 
 
-First, run the development server:
+The main features of the dashboard are:
+- **Key Metrics Cards**: Displaying data such as total users, active users, total streams, revenue, and top artist.
+- **Data Visualization**: Interactive line, pie, and bar charts using **Recharts**.
+- **Data Table**: A detailed table of recent streams, with filtering and sorting functionalities.
+- **Smooth Animations**: Implemented with **Framer Motion** for a seamless user experience.
+- **Unit Tests**: Sample unit tests created using **Jest** for one component.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Features Breakdown
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Key Metrics**
+   - **Total Users**: Displays the total number of users on the platform.
+   - **Active Users**: Shows users who have streamed at least one song in the past 30 days.
+   - **Total Streams**: Shows the total number of song streams on the platform.
+   - **Revenue**: Displays the total revenue generated from subscriptions and ads.
+   - **Top Artist**: The artist with the most streams in the past 30 days.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Data Visualization**
+   - **User Growth Chart**: A line chart showing user and active user growth over the past 12 months.
+   - **Revenue Distribution**: A pie chart visualizing revenue from subscriptions and ads.
+   - **Top 5 Streamed Songs**: A bar chart showing the top 5 most streamed songs in the last 30 days.
 
-## Learn More
+3. **Data Table**
+   - **Sortable and Filterable Table**: Users can sort by stream count and filter by song name or artist.
 
-To learn more about Next.js, take a look at the following resources:
+4. **Additional Features**
+   - **Age Grops**: Shows users age-group comparision.
+   - **Chart Interactions**: Hover to view exact data points on charts.
+   - **Animations**: **Framer Motion** adds smooth transitions between different dashboard sections.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Technical Stack
 
-## Deploy on Vercel
+- **Next.js**: Server-side rendering for improved performance and SEO.
+- **TypeScript**: Type safety for better code maintainability and development experience.
+- **Tailwind CSS**: Customizable utility-first CSS framework for responsive design.
+- **Recharts**: Charting library used for creating the line, pie, and bar charts.
+- **Framer Motion**: Smooth animations for enhanced user interactions.
+- **Jest**: Unit testing for components.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Performance Considerations
+
+- **Lazy Loading and Code Splitting**: Implemented to ensure faster load times and improved app performance.
+- **Memoization**: Applied in key places to avoid unnecessary re-renders, optimizing React's performance.
+  
+---
+
+### Unit Testing
+
+- **Jest**: A sample unit test was written for one of the key components, ensuring its correct behavior. Test coverage can be expanded as needed.
+
+---
+
+### How to Run the Application
+
+1. **Clone the Repository**: 
+   ```bash
+   git clone git@github.com:Dare-devil-23/streamify.git
+   ```
+   
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Run the Application**:
+   ```bash
+   npm run dev
+   ```
+   The application will be running on `http://localhost:3000`.
+
+4. **Run Tests**:
+   ```bash
+   npm test
+   ```
+
+---
+
+### Trade-offs and Design Choices
+
+1. **TypeScript**: Chosen for its type safety and to minimize runtime errors, though it may add some initial complexity.
+2. **Recharts**: A well-documented and highly customizable chart library, though other libraries (e.g., D3.js) could offer more flexibility for complex visualizations.
+3. **Tailwind CSS**: Chosen for its simplicity in creating a responsive design, which speeds up the styling process.
+
+---
+
+### Future Improvements
+
+- **Real Backend**: Replace mocked data with an actual API to make the dashboard functional with real-time data.
+- **Expanded Unit Testing**: Increase coverage by testing more components and edge cases.
+- **Error Handling**: Implement a more robust error-handling system for data fetching and user input.
+  
+---
+
+### Conclusion
+
+This project showcases a modern and responsive dashboard designed with a strong focus on user experience and performance. The combination of **Next.js**, **TypeScript**, and **Tailwind CSS** ensures a scalable and maintainable codebase, while **Recharts** and **Framer Motion** provide engaging visualizations and interactions.
